@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL ?? "/api";
+
 type Screen =
   | "login"
   | "dashboard"
@@ -77,7 +79,7 @@ function App() {
   async function loadSavedData(patientName: string) {
     try {
       const medResponse = await fetch(
-        `http://127.0.0.1:8000/medications/${encodeURIComponent(patientName)}`
+        `${API_BASE}/medications/${encodeURIComponent(patientName)}`
       );
       const medResult = await medResponse.json();
 
@@ -93,7 +95,7 @@ function App() {
       }
 
       const checkResponse = await fetch(
-        `http://127.0.0.1:8000/checkins/${encodeURIComponent(patientName)}`
+        `${API_BASE}/checkins/${encodeURIComponent(patientName)}`
       );
       const checkResult = await checkResponse.json();
 
@@ -112,7 +114,7 @@ function App() {
       }
 
       const appointmentResponse = await fetch(
-        `http://127.0.0.1:8000/appointments/${encodeURIComponent(patientName)}`
+        `${API_BASE}/appointments/${encodeURIComponent(patientName)}`
       );
       const appointmentResult = await appointmentResponse.json();
 
@@ -162,7 +164,7 @@ function App() {
     }
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/medications", {
+      const response = await fetch(`${API_BASE}/medications`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -213,7 +215,7 @@ function App() {
     }
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/checkins", {
+      const response = await fetch(`${API_BASE}/checkins`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -258,7 +260,7 @@ function App() {
     }
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/appointments", {
+      const response = await fetch(`${API_BASE}/appointments`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

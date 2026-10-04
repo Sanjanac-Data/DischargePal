@@ -1,0 +1,8 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/api", "destination": "/backend/main.py" },
+    { "source": "/api/:path*", "destination": "/backend/main.py" }
+  ]
+}
