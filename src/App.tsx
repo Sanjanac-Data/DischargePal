@@ -950,13 +950,13 @@ function App() {
           your healthcare provider or emergency services.
         </div>
 
-        {screen === "login" && <LoginScreen />}
-        {screen === "dashboard" && <DashboardScreen />}
-        {screen === "medication" && <MedicationScreen />}
-        {screen === "checkin" && <CheckInScreen />}
-        {screen === "appointments" && <AppointmentsScreen />}
-        {screen === "review" && <ReviewScreen />}
-        {screen === "confirmation" && <ConfirmationScreen />}
+        {screen === "login" && LoginScreen()}
+        {screen === "dashboard" && DashboardScreen()}
+        {screen === "medication" && MedicationScreen()}
+        {screen === "checkin" && CheckInScreen()}
+        {screen === "appointments" && AppointmentsScreen()}
+        {screen === "review" && ReviewScreen()}
+        {screen === "confirmation" && ConfirmationScreen()}
       </main>
 
       <footer>DischargePal • Recovery support, not medical advice</footer>
